@@ -1,0 +1,25 @@
+From ca704b7d991fe0cbdf761d364282d4720f8aa65a Mon Sep 17 00:00:00 2001
+From: Simon Busch <morphis@gravedo.de>
+Date: Thu, 23 Feb 2012 20:40:44 +0100
+Subject: [PATCH] Use yajl_get_error instead of yajl_get_error_ex
+
+---
+ src/pjson_c/jparse_stream.c |    2 +-
+ 1 files changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/pjson_c/jparse_stream.c b/src/pjson_c/jparse_stream.c
+index 4b74992..e22a4ea 100644
+--- a/src/pjson_c/jparse_stream.c
++++ b/src/pjson_c/jparse_stream.c
+@@ -822,7 +822,7 @@ static bool jsax_parse_internal(PJSAXCallbacks *parser, raw_buffer input, JSchem
+ 
+ parse_failure:
+ 	if (UNLIKELY(logError)) {
+-		unsigned char *errMsg = yajl_get_error_ex(handle, 1, (unsigned char *)input.m_str, input.m_len, "        ");
++		unsigned char *errMsg = yajl_get_error(handle, 1, (unsigned char *)input.m_str, input.m_len);
+ 		PJ_LOG_WARN("Parser reason for failure:\n'%s'", errMsg);
+ 		yajl_free_error(handle, errMsg);
+ 	}
+-- 
+1.7.9
+
