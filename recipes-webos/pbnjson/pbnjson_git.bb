@@ -13,7 +13,7 @@ SRC_URI = " \
   file://yajl-get-error-ex-removable.patch;striplevel=2"
 S = "${WORKDIR}/git/src"
 
-SRCREV = "5b0d5347d16c7cdf540e94f4f0a9a218b9fd7693"
+SRCREV = "519040930b2c407743906f8a7e7da4f78e1d1c49"
 
 inherit cmake
 
