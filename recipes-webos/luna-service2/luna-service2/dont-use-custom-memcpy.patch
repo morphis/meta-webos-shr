@@ -1,0 +1,39 @@
+From fc45909c256f90319336951ac2a4ce7059ff9ae1 Mon Sep 17 00:00:00 2001
+From: Simon Busch <morphis@gravedo.de>
+Date: Fri, 8 Jun 2012 14:36:14 +0200
+Subject: [PATCH] Don't use any custom memcpy library (we don't have one)
+
+---
+ CMakeLists.txt         |    3 ---
+ src/hub/CMakeLists.txt |    2 +-
+ 2 files changed, 1 insertion(+), 4 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 84f1c3a..6321de8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -123,9 +123,6 @@ if (TARGET_DEVICE OR TARGET_EMULATOR)
+ 
+         # Only root (owner) will be permitted access to certain binaries on device
+         set(RESTRICTED_PERMS PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE)
+-   
+-        # Custom (faster) memcpy library 
+-        find_library(MEMCPY_LIBRARIES memcpy)
+     else ()
+         # Emulator
+         add_definitions(-DTARGET_EMULATOR)
+diff --git a/src/hub/CMakeLists.txt b/src/hub/CMakeLists.txt
+index c7e3f80..b3034bb 100644
+--- a/src/hub/CMakeLists.txt
++++ b/src/hub/CMakeLists.txt
+@@ -31,6 +31,6 @@ set(HUB_SRCS
+ add_definitions(-DG_LOG_DOMAIN="LunaServiceHub")
+ 
+ add_executable(ls-hubd ${HUB_SRCS})
+-target_link_libraries(ls-hubd ${LS2_LIBRARY_NAME} ${PMLOGLIB_LDFLAGS} ${MEMCPY_LIBRARIES})
++target_link_libraries(ls-hubd ${LS2_LIBRARY_NAME} ${PMLOGLIB_LDFLAGS})
+ 
+ install(TARGETS ls-hubd DESTINATION bin ${RESTRICTED_PERMS})
+-- 
+1.7.9.5
+
