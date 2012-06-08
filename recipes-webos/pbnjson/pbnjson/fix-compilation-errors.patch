@@ -1,0 +1,100 @@
+From 537d6883920f97147775c3d101d9f5369efa5d60 Mon Sep 17 00:00:00 2001
+From: Simon Busch <morphis@gravedo.de>
+Date: Thu, 23 Feb 2012 20:40:44 +0100
+Subject: [PATCH] Fix various compilation errors (mostly mark errors as
+ warnings)
+
+---
+ src/CMakeLists.txt           |    4 ++--
+ src/api/pbnjson/cxx/JValue.h |    2 +-
+ src/pjson_c/jparse_stream.c  |    2 +-
+ src/pjson_cxx/JValue.cpp     |    4 ++--
+ src/pjson_v8/JV8Binding.cpp  |    2 +-
+ 5 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 642cd58..e666a95 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -96,7 +96,7 @@ endif ()
+ if(CMAKE_COMPILER_IS_GNUCC)
+ 	# std=c99: The C library will be C99 compliant (necessary for some stuff).
+ 	# fmessage-length=0: Make sure that errors & messages are printed on 1 line
+-	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -fmessage-length=0 -Wall -Werror -pipe")
++	set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -std=c99 -fmessage-length=0 -Wall -Werror -pipe -Wno-error=implicit-function-declaration -Wno-error=unused-but-set-variable")
+ 	set(CMAKE_C_FLAGS_DEBUG "${CMAKE_C_FLAGS_DEBUG} -O0 -DDEBUG -D_DEBUG -DPJSON_LOG_INFO -DPJSON_LOG_STDOUT")
+ 	set(CMAKE_C_FLAGS_RELEASE "${CMAKE_C_FLAGS_RELEASE} -DNDEBUG -g")
+ else(CMAKE_COMPILER_IS_GNUCC)
+@@ -108,7 +108,7 @@ endif(CMAKE_COMPILER_IS_GNUCC)
+ 
+ if(CMAKE_COMPILER_IS_GNUCXX)
+ 	# fmessage-length=0: Make sure that errors & messages are printed on 1 line
+-	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fmessage-length=0 -Wall -Werror -pipe")
++	set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fmessage-length=0 -Wall -Werror -pipe -Wno-error=narrowing")
+ 	set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -O0 -DDEBUG -D_DEBUG -DPJSON_LOG_INFO -DPJSON_LOG_STDOUT")
+ 	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG -g")
+ else(CMAKE_COMPILER_IS_GNUCXX)
+diff --git a/src/api/pbnjson/cxx/JValue.h b/src/api/pbnjson/cxx/JValue.h
+index 0e22b3a..0b92c6b 100644
+--- a/src/api/pbnjson/cxx/JValue.h
++++ b/src/api/pbnjson/cxx/JValue.h
+@@ -276,7 +276,7 @@ public:
+ 	 *
+ 	 * @return The size of the array, or -1 if this isn't an array.
+ 	 */
+-	ssize_t arraySize() const;
++	int arraySize() const;
+ 
+ 
+ 	//{@
+diff --git a/src/pjson_c/jparse_stream.c b/src/pjson_c/jparse_stream.c
+index 4b74992..e22a4ea 100644
+--- a/src/pjson_c/jparse_stream.c
++++ b/src/pjson_c/jparse_stream.c
+@@ -822,7 +822,7 @@ static bool jsax_parse_internal(PJSAXCallbacks *parser, raw_buffer input, JSchem
+ 
+ parse_failure:
+ 	if (UNLIKELY(logError)) {
+-		unsigned char *errMsg = yajl_get_error_ex(handle, 1, (unsigned char *)input.m_str, input.m_len, "        ");
++		unsigned char *errMsg = yajl_get_error(handle, 1, (unsigned char *)input.m_str, input.m_len);
+ 		PJ_LOG_WARN("Parser reason for failure:\n'%s'", errMsg);
+ 		yajl_free_error(handle, errMsg);
+ 	}
+diff --git a/src/pjson_cxx/JValue.cpp b/src/pjson_cxx/JValue.cpp
+index 583e231..0665382 100644
+--- a/src/pjson_cxx/JValue.cpp
++++ b/src/pjson_cxx/JValue.cpp
+@@ -236,7 +236,7 @@ bool JValue::operator==(const JValue& other) const
+ 			return false;
+ 		if (jarray_size(m_jval) != jarray_size(other.m_jval))
+ 			return false;
+-		for (ssize_t i = jarray_size(m_jval) - 1; i >= 0; i--) {
++		for (int i = jarray_size(m_jval) - 1; i >= 0; i--) {
+ 			if (JValue(jarray_get(m_jval, i)) != JValue(jarray_get(other.m_jval, i)))
+ 				return false;
+ 		}
+@@ -373,7 +373,7 @@ bool JValue::hasKey(const std::string& key) const
+ 	return jobject_get_exists(m_jval, strToRawBuffer(key), NULL);
+ }
+ 
+-ssize_t JValue::arraySize() const
++int JValue::arraySize() const
+ {
+ 	return jarray_size(m_jval);
+ }
+diff --git a/src/pjson_v8/JV8Binding.cpp b/src/pjson_v8/JV8Binding.cpp
+index 31469cf..796135d 100644
+--- a/src/pjson_v8/JV8Binding.cpp
++++ b/src/pjson_v8/JV8Binding.cpp
+@@ -44,7 +44,7 @@ namespace pbnjson {
+ 			m_context->Enter();
+ #endif
+ 
+-			Handle<String> strToParse = args[0]->ToString();
++			// Handle<String> strToParse = args[0]->ToString();
+ 			Handle<Function> keyValueConverter = Local<Function>::Cast(args[1]);
+ 
+ 			{
+-- 
+1.7.9.5
+

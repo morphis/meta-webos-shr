@@ -10,10 +10,10 @@ DEPENDS = "yajl libpcre"
 
 SRC_URI = " \
   git://github.com/isis-project/pbnjson.git;protocol=http;branch=master \
-  file://yajl-get-error-ex-removable.patch;striplevel=2"
+  file://fix-compilation-errors.patch;striplevel=2"
 S = "${WORKDIR}/git/src"
 
-SRCREV = "519040930b2c407743906f8a7e7da4f78e1d1c49"
+SRCREV = "bdad3ab1e5f0d0cfa8430004f99bdc4459450597"
 
 inherit cmake
 
