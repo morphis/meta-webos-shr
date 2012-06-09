@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b58e496..16d7163 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -121,7 +121,7 @@ add_definitions(${NYXLIB_CFLAGS})
+ add_definitions("-Wall")
+ 
+ # Require that all undefined symbols are satisfied by the libraries from target_link_libraries()
+-add_linker_flags("-Wl,--no-undefined")
++add_linker_flags("-Wl,--no-undefined -lrt -lpthread")
+ # XXX_ The libraries that come with gcc fail when --no-allow-shlib-undefined is specified
+ #add_linker_flags("-Wl,--no-allow-shlib-undefined")
+ 
