@@ -1,0 +1,13 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index b81dd37..a2bdde1 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -114,7 +114,7 @@ add_definitions("-Wall")
+ #add_linker_flags("-Wl,--version-script=${PROJECT_SOURCE_DIR}/src/${POWERD_LIBRARY_NAME}Exports.map")
+ 
+ # Require that all undefined symbols are satisfied by the libraries from target_link_libraries()
+-add_linker_flags("-Wl,--no-undefined")
++add_linker_flags("-Wl,--no-undefined -lrt")
+ # XXX_ The libraries that come with gcc fail when --no-allow-shlib-undefined is specified
+ #add_linker_flags("-Wl,--no-allow-shlib-undefined")
+ 
