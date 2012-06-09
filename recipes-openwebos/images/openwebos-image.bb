@@ -19,4 +19,6 @@ IMAGE_INSTALL += " \
   opkg \
   luna-service2 \
   nodejs-openwebos \
+  sleepd \
+  powerd \
 "
