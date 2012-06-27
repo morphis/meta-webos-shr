@@ -12,7 +12,7 @@ SRC_URI = " \
   file://add-missing-dependency-librt.patch"
 S = "${WORKDIR}/git"
 
-SRCREV = "fbf56b4a02b74e06a6ab31f30c67cda3fddcbd03"
+SRCREV = "145a76062c1aed07668766833315644d7053f07d"
 
 inherit cmake
 
