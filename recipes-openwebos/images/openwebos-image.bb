@@ -21,4 +21,5 @@ IMAGE_INSTALL += " \
   nodejs-openwebos \
   sleepd \
   powerd \
+  storaged \
 "
