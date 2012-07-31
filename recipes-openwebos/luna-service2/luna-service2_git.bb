@@ -10,7 +10,7 @@ SRC_URI = " \
   file://dont-use-custom-memcpy.patch"
 S = "${WORKDIR}/git"
 
-SRCREV = "f8ec6f03134a1263bc6e21e261c869b7e1e3848c"
+SRCREV = "fdc264f844533eafeb2d3cd6675314c13a15fd67"
 
 DEPENDS = "glib-2.0 cjson-openwebos pmloglib"
 

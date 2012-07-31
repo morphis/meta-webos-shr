@@ -10,7 +10,7 @@ DEPEDS = "glib-2.0"
 SRC_URI = "git://github.com/openwebos/nyx-lib.git;protocol=http;branch=master"
 S = "${WORKDIR}/git"
 
-SRCREV = "41267f0dd25d281bf993377223a9c80905702bbd"
+SRCREV = "ce3549276be5ba60129542222e327c25088cf2a9"
 
 inherit cmake
 

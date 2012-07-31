@@ -12,7 +12,7 @@ SRC_URI = " \
   file://fix-ldflags.patch"
 S = "${WORKDIR}/git"
 
-SRCREV = "c49cc7caa3a799bb8d10e7685e60ec3e6bab40b2"
+SRCREV = "9d5ce660eba324e8172117d53690c82431e5dc01"
 
 inherit cmake
 
