@@ -1,0 +1,40 @@
+From fadedc7051577f36e7d61b4ddeb55d217b938dc4 Mon Sep 17 00:00:00 2001
+From: Simon Busch <morphis@gravedo.de>
+Date: Wed, 1 Aug 2012 22:50:25 +0200
+Subject: [PATCH 2/2] Use .so as module suffix rather than not common .module
+ one
+
+---
+ src/target/rockhopper/CMakeLists.txt |    2 +-
+ src/target/ubuntu/CMakeLists.txt     |    2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/target/rockhopper/CMakeLists.txt b/src/target/rockhopper/CMakeLists.txt
+index de6ed6c..99c0147 100644
+--- a/src/target/rockhopper/CMakeLists.txt
++++ b/src/target/rockhopper/CMakeLists.txt
+@@ -17,7 +17,7 @@
+ # LICENSE@@@
+ 
+ set (CMAKE_SHARED_MODULE_PREFIX "nyx")
+-set (CMAKE_SHARED_MODULE_SUFFIX ".module")
++set (CMAKE_SHARED_MODULE_SUFFIX ".so")
+ # Use multiarch paths
+ if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+ set (NYX_MODULE_DIR "/lib/aarch64-linux-gnu/nyx/modules")
+diff --git a/src/target/ubuntu/CMakeLists.txt b/src/target/ubuntu/CMakeLists.txt
+index 73663b4..956f432 100644
+--- a/src/target/ubuntu/CMakeLists.txt
++++ b/src/target/ubuntu/CMakeLists.txt
+@@ -17,7 +17,7 @@
+ # LICENSE@@@
+ 
+ set (CMAKE_SHARED_MODULE_PREFIX "nyx")
+-set (CMAKE_SHARED_MODULE_SUFFIX ".module")
++set (CMAKE_SHARED_MODULE_SUFFIX ".so")
+ # Use multiarch paths
+ # XXX Eventually convert to use output from "dpkg-architecture -qDEB_HOST_MULTIARCH"
+ if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+-- 
+1.7.9.5
+
