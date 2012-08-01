@@ -1,0 +1,9 @@
+[Unit]
+Description=Power management for webOS
+Requires=ls-hubd-private.service ls-hubd-public.service
+
+[Service]
+ExecStart=/usr/sbin/powerd
+
+[Install]
+WantedBy=basic.target
