@@ -12,10 +12,13 @@ IMAGE_FEATURES += " \
 
 inherit core-image
 
-RDEPENDS_${PN} += " opkg"
+RDEPENDS_${PN} += " \
+  task-openwebos-systemd \
+  opkg"
 
 IMAGE_INSTALL += " \
   task-core-boot \
+  task-openwebos-systemd \
   opkg \
   luna-service2 \
   nodejs-openwebos \
