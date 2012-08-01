@@ -7,14 +7,21 @@ PR = "r4"
 
 SRC_URI = " \
   git://github.com/openwebos/luna-service2.git;protocol=http;branch=master \
-  file://dont-use-custom-memcpy.patch"
+  file://dont-use-custom-memcpy.patch \
+  file://ls-hubd-public.service \
+  file://ls-hubd-private.service"
 S = "${WORKDIR}/git"
 
 SRCREV = "fdc264f844533eafeb2d3cd6675314c13a15fd67"
 
 DEPENDS = "glib-2.0 cjson-openwebos pmloglib"
 
-inherit cmake
+inherit cmake systemd
+
+SYSTEMD_PACKAGES = "${PN}-systemd"
+SYSTEMD_SERVICE = " \
+  ls-hubd-public.service \
+  ls-hubd-private.service"
 
 EXTRA_OECMAKE = "-DTARGET_CORE_OS=rockhopper"
 

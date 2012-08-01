@@ -1,0 +1,8 @@
+[Unit]
+Description=Luna Service2 (private)
+
+[Service]
+ExecStart=/usr/bin/ls-hubd --conf /etc/ls2/ls-public.conf --pmloglib --public
+
+[Install]
+WantedBy=basic.target
