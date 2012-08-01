@@ -3,7 +3,7 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=55a6001c5e0219eb260937964862a8a6"
 PV = "4.0.0-rc1+gitr${SRCPV}"
-PR = "r4"
+PR = "r5"
 
 DEPENDS = "glib-2.0 cjson-openwebos luna-service2 nyx-lib"
 
@@ -37,9 +37,15 @@ do_install_append() {
     ${D}${datadir}/ls2/services/prv/com.palm.power.service
   install -m 0644 ${S}/service/com.palm.power.service.pub \
     ${D}${datadir}/ls2/services/pub/com.palm.power.service
+
+  install -d ${D}${localstatedir}/preferences/com.palm.power
+  install -m 0644 ${S}/powerd/preferences/powerd.conf \
+    ${D}${localstatedir}/preferences/com.palm.power
 }
 
 PACKAGES += "${PN}-upstart"
 
-FILES_${PN} += "${datadir}/ls2/"
+FILES_${PN} += " \
+  ${datadir}/ls2/ \
+  ${localstatedir}/preferences/com.palm.power"
 FILES_${PN}-upstart = "${sysconfdir}/event.d/powerd"
