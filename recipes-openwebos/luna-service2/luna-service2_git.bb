@@ -3,7 +3,7 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=0805e6a5927b13bf0f0738f011936c0c"
 PV = "3.0.0+gitr${SRCPV}"
-PR = "r2"
+PR = "r3"
 
 SRC_URI = " \
   git://github.com/openwebos/luna-service2.git;protocol=http;branch=master \
@@ -19,6 +19,12 @@ inherit cmake
 EXTRA_OECMAKE = "-DTARGET_CORE_OS=rockhopper"
 
 pkg_postinst_${PN} () {
-  mkdir -p ${datadir}/ls2/roles/prv
-  mkdir -p ${datadir}/ls2/roles/pub
+  # create system service and roles directories necessary for ls-hub start
+  for p in "prv pub" ; do
+    mkdir -p ${datadir}/ls2/roles/$p
+    mkdir -p ${localstatedir}/palm/ls2/roles/$p
+    mkdir -p ${localstatedir}/palm/ls2/services/$p
+    mkdir -p ${localstatedir}/mft/palm/ls2/roles/$p
+    mkdir -p ${localstatedir}/mft/palm/ls2/system-services/$p
+  done
 }
