@@ -3,7 +3,7 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=55a6001c5e0219eb260937964862a8a6"
 PV = "4.0.0-rc1+gitr${SRCPV}"
-PR = "r3"
+PR = "r4"
 
 DEPENDS = "glib-2.0 cjson-openwebos luna-service2 nyx-lib"
 
@@ -31,7 +31,7 @@ do_install_append() {
   install -m 0644 ${S}/service/com.palm.power.json.prv \
     ${D}${datadir}/ls2/roles/prv/com.palm.power.json
   install -m 0644 ${S}/service/com.palm.power.json.pub \
-    ${D}${datadir}/ls2/roles/prv/com.palm.power.json
+    ${D}${datadir}/ls2/roles/pub/com.palm.power.json
 
   install -m 0644 ${S}/service/com.palm.power.service.prv \
     ${D}${datadir}/ls2/services/prv/com.palm.power.service
