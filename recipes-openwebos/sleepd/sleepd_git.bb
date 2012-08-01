@@ -3,7 +3,7 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=5b6a0fa6d5039ac085000220e04305d5"
 PV = "1.1.0-rc1+gitr${SRCPV}"
-PR = "r4"
+PR = "r5"
 
 DEPENDS = "glib-2.0 cjson-openwebos luna-service2 nyx-lib powerd sqlite3"
 
@@ -31,7 +31,7 @@ do_install_append() {
   install -m 0644 ${S}/service/com.palm.sleep.json.prv \
     ${D}${datadir}/ls2/roles/prv/com.palm.sleep.json
   install -m 0644 ${S}/service/com.palm.sleep.json.pub \
-    ${D}${datadir}/ls2/roles/prv/com.palm.sleep.json
+    ${D}${datadir}/ls2/roles/pub/com.palm.sleep.json
 
   install -m 0644 ${S}/service/com.palm.sleep.service.prv \
     ${D}${datadir}/ls2/services/prv/com.palm.sleep.service
