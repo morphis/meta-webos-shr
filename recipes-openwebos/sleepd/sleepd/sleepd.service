@@ -1,0 +1,9 @@
+[Unit]
+Description=Idle/alaram management for webOS
+Requires=ls-hubd-private.service ls-hubd-public.service
+
+[Service]
+ExecStart=/usr/sbin/sleepd
+
+[Install]
+WantedBy=basic.target
