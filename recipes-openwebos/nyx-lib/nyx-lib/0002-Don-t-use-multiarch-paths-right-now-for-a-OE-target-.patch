@@ -1,0 +1,29 @@
+From 074d66a674b79525ac39f5fe8362f454bac17c3f Mon Sep 17 00:00:00 2001
+From: Simon Busch <morphis@gravedo.de>
+Date: Thu, 2 Aug 2012 08:26:07 +0200
+Subject: [PATCH 2/2] Don't use multiarch paths right now for a OE target
+ environment
+
+---
+ src/target/rockhopper/CMakeLists.txt |    8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
+
+diff --git a/src/target/rockhopper/CMakeLists.txt b/src/target/rockhopper/CMakeLists.txt
+index 2c675e1..03005aa 100644
+--- a/src/target/rockhopper/CMakeLists.txt
++++ b/src/target/rockhopper/CMakeLists.txt
+@@ -19,10 +19,4 @@
+ set (CMAKE_SHARED_MODULE_PREFIX "nyx")
+ set (CMAKE_SHARED_MODULE_SUFFIX ".module")
+ # Use multiarch paths
+-if(CMAKE_SIZEOF_VOID_P EQUAL 8)
+-set (NYX_MODULE_DIR "/usr/lib/aarch64-linux-gnu/nyx/modules")
+-set (NYX_MODULE_MOCK_DIR "/usr/lib/aarch64-linux-gnu/nyx/modules.mock")
+-else()
+-set (NYX_MODULE_DIR "/usr/lib/arm-linux-gnueabi/nyx/modules")
+-set (NYX_MODULE_MOCK_DIR "/usr/lib/arm-linux-gnueabi/nyx/modules.mock")
+-endif()
++set (NYX_MODULE_DIR "/usr/lib/nyx/modules")
+-- 
+1.7.9.5
+
