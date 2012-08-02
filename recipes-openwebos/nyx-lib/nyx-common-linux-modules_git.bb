@@ -9,7 +9,7 @@ DEPEDS = "nyx-lib"
 SRC_URI = "git://github.com/morphis/nyx-common-linux-modules.git;protocol=http;branch=master"
 S = "${WORKDIR}/git"
 
-SRCREV = "d9c1094980eb31bd7b4f358f21f4b801d70708b9"
+SRCREV = "2c20ae6ad0fbd4bfbc508c9979fd5198a82eae56"
 
 inherit autotools
 
