@@ -1,6 +1,6 @@
 DESCRIPTION = "Common linux modules for the Nyx platform portability layer"
 LICENSE = "GPL-3"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/COPYING;md5=d32239bcb673463ab874e80d47fae504"
+LIC_FILES_CHKSUM = "file://COPYING;md5=d32239bcb673463ab874e80d47fae504"
 PV = "0.1.0+gitr${SRCPV}"
 PR = "r1"
 

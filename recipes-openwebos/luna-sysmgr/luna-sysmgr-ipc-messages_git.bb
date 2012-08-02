@@ -2,7 +2,7 @@ DESCRIPTION = "Public header files used by LunaSysMgrIpc, the webOS IPC library 
 the luna-sysmgr"
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=f0e572a8a2817964cf14a181a34ec7d7"
+LIC_FILES_CHKSUM = "file://README.md;md5=f0e572a8a2817964cf14a181a34ec7d7"
 PV = "1.0.1+gitr${SRCPV}"
 PR = "r0"
 

@@ -2,7 +2,7 @@ DESCRIPTION = "Pbnjson is Palm's Better Native JSON library. Supports schemas an
 and C++ APIs."
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=12f96df86e1fac200e836c51251bb264"
+LIC_FILES_CHKSUM = "file://../README.md;md5=12f96df86e1fac200e836c51251bb264"
 PV = "1.1.0+gitr${SRCPV}"
 PR = "r0"
 

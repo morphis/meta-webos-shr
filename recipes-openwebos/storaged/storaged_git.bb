@@ -1,7 +1,7 @@
 DESCRIPTION = "The Open webOS storage management daemon"
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=76aa6fbe3ee3d5bbff1b96a09c5be6b6"
+LIC_FILES_CHKSUM = "file://README.md;md5=76aa6fbe3ee3d5bbff1b96a09c5be6b6"
 PV = "2.1.0-rc1+gitr${SRCPV}"
 PR = "r1"
 

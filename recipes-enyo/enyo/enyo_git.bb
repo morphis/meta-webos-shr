@@ -2,7 +2,7 @@ DESCRIPTION = "Enyo is an open source object-oriented JavaScript framework empha
 encapsulation and modularity."
 AUTHOR = "Enyo JS Framework Team (HP)"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE-2.0.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
+LIC_FILES_CHKSUM = "file://LICENSE-2.0.txt;md5=3b83ef96387f14655fc854ddc3c6bd57"
 BASE_PV = "2.0.0"
 PV = "${BASE_PV}-beta.4+gitr${SRCPV}"
 PR = "r0"

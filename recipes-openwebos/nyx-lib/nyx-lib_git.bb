@@ -1,7 +1,7 @@
 DESCRIPTION = "The Open webOS portability layer"
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=ee53e8901568a36f0fa64432098d035f"
+LIC_FILES_CHKSUM = "file://README.md;md5=ee53e8901568a36f0fa64432098d035f"
 PV = "2.0.0+gitr${SRCPV}"
 PR = "r2"
 

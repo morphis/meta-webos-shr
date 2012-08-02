@@ -2,7 +2,7 @@ DESCRIPTION = "Open webOS edition of the server-side JavaScript environment that
 asynchronous event-driven model."
 AUTHOR = "Joyent, Inc. and other Node contributors"
 LICENSE = "MIT & Zlib"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/LICENSE;md5=d6237f3a840aef5b7880fb4e49eecfe5"
+LIC_FILES_CHKSUM = "file://LICENSE;md5=d6237f3a840aef5b7880fb4e49eecfe5"
 PV = "0.4.12-webos2+gitr${SRCPV}"
 PR = "r1"
 

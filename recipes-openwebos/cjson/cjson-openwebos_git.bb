@@ -2,7 +2,7 @@ DESCRIPTION = "An ultra-lightweight, portable, single-file, simple-as-can-be ANS
 compliant JSON parse -- modifed for Open webOS"
 AUTHOR = "Metaparadigm Pte Ltd & Hewlett-Packard Development Company, L.P"
 LICENSE = "MIT"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/COPYING;md5=30a276a476b02c2dcd0849bde417fb17"
+LIC_FILES_CHKSUM = "file://COPYING;md5=30a276a476b02c2dcd0849bde417fb17"
 PV = "1.8.0+gitr${SRCPV}"
 PR = "r0"
 

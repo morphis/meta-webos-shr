@@ -1,7 +1,7 @@
 DESCRIPTION = "The Open webOS power management daemon"
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=55a6001c5e0219eb260937964862a8a6"
+LIC_FILES_CHKSUM = "file://README.md;md5=55a6001c5e0219eb260937964862a8a6"
 PV = "4.0.0-rc1+gitr${SRCPV}"
 PR = "r5"
 

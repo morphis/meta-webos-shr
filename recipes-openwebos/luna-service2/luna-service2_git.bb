@@ -1,7 +1,7 @@
 DESCRIPTION = "Luna-service2 provides a bus-based IPC mechanism used between components in webOS."
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=0805e6a5927b13bf0f0738f011936c0c"
+LIC_FILES_CHKSUM = "file://README.md;md5=0805e6a5927b13bf0f0738f011936c0c"
 PV = "3.0.0+gitr${SRCPV}"
 PR = "r4"
 

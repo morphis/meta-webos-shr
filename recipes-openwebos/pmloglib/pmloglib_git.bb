@@ -1,7 +1,7 @@
 DESCRIPTION = "The webOS logging library"
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://${WORKDIR}/git/README.md;md5=d33346daa08a48f9ba6aca20edb82da3"
+LIC_FILES_CHKSUM = "file://README.md;md5=d33346daa08a48f9ba6aca20edb82da3"
 PV = "2.0.0+gitr${SRCPV}"
 PR = "r0"
 
