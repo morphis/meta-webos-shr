@@ -3,7 +3,7 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://README.md;md5=55a6001c5e0219eb260937964862a8a6"
 PV = "4.0.0-rc1+gitr${SRCPV}"
-PR = "r5"
+PR = "r6"
 
 DEPENDS = "glib-2.0 cjson-openwebos luna-service2 nyx-lib"
 
@@ -15,7 +15,7 @@ S = "${WORKDIR}/git"
 
 SRCREV = "5077891a3430aa6ed5c10b222d82126b44a905cc"
 
-inherit cmake systemd
+inherit cmake systemd upstart
 
 SYSTEMD_PACKAGES = "${PN}-systemd"
 SYSTEMD_SERVICE = "powerd.service"
@@ -43,9 +43,6 @@ do_install_append() {
     ${D}${localstatedir}/preferences/com.palm.power
 }
 
-PACKAGES += "${PN}-upstart"
-
 FILES_${PN} += " \
   ${datadir}/ls2/ \
   ${localstatedir}/preferences/com.palm.power"
-FILES_${PN}-upstart = "${sysconfdir}/event.d/powerd"

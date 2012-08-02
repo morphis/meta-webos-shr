@@ -3,7 +3,7 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://README.md;md5=5b6a0fa6d5039ac085000220e04305d5"
 PV = "1.1.0-rc1+gitr${SRCPV}"
-PR = "r5"
+PR = "r6"
 
 DEPENDS = "glib-2.0 cjson-openwebos luna-service2 nyx-lib powerd sqlite3"
 
@@ -15,7 +15,7 @@ S = "${WORKDIR}/git"
 
 SRCREV = "9d5ce660eba324e8172117d53690c82431e5dc01"
 
-inherit cmake systemd
+inherit cmake systemd upstart
 
 SYSTEMD_PACKAGES = "${PN}-systemd"
 SYSTEMD_SERVICE = "sleepd.service"
@@ -44,7 +44,4 @@ do_install_append() {
 
 }
 
-PACKAGES += "${PN}-upstart"
-
 FILES_${PN} += "${datadir}/ls2/"
-FILES_${PN}-upstart = "${sysconfdir}/event.d/sleepd"
