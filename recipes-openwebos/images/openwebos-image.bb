@@ -25,4 +25,5 @@ IMAGE_INSTALL += " \
   sleepd \
   powerd \
   storaged \
+  nyx-common-linux-modules \
 "
