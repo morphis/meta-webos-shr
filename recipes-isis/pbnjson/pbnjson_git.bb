@@ -4,7 +4,7 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://../README.md;md5=12f96df86e1fac200e836c51251bb264"
 PV = "1.1.0+gitr${SRCPV}"
-PR = "r1"
+PR = "r2"
 
 # only headers in -dev
 ALLOW_EMPTY_${PN} = "1"
@@ -20,4 +20,4 @@ SRCREV = "a798bf7efe86ba5d4b2f46a5791efc99"
 
 inherit cmake
 
-EXTRA_OECMAKE = "-DWITH_TESTS=False"
+EXTRA_OECMAKE = "-DWITH_TESTS=False -DCMAKE_BUILD_TYPE=release"
