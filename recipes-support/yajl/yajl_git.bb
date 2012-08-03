@@ -9,6 +9,7 @@ PV = "1.0.4+gitr${SRCPV}"
 SRC_URI = "git://github.com/lloyd/yajl;protocol=http;branch=master"
 S = "${WORKDIR}/git"
 
+# NOTE this is fixed to the 1.0.4 version; don't change this!
 SRCREV = "8804b2841f04f6e101638a59fcd318ebc00a017c"
 
 inherit cmake
