@@ -1,7 +1,7 @@
 DESCRIPTION = "The Open webOS portability layer"
 AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
-LIC_FILES_CHKSUM = "file://README.md;md5=ee53e8901568a36f0fa64432098d035f"
+LIC_FILES_CHKSUM = "file://README.md;md5=a798bf7efe86ba5d4b2f46a5791efc99"
 PV = "2.0.0+gitr${SRCPV}"
 PR = "r2"
 
@@ -15,7 +15,7 @@ SRC_URI = " \
   file://0002-Don-t-use-multiarch-paths-right-now-for-a-OE-target-.patch"
 S = "${WORKDIR}/git"
 
-SRCREV = "ce3549276be5ba60129542222e327c25088cf2a9"
+SRCREV = "a798bf7efe86ba5d4b2f46a5791efc99"
 
 inherit cmake
 
