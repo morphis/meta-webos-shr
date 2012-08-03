@@ -4,7 +4,10 @@ AUTHOR = "Hewlett-Packard Development Company, L.P"
 LICENSE = "Apache-2.0"
 LIC_FILES_CHKSUM = "file://../README.md;md5=12f96df86e1fac200e836c51251bb264"
 PV = "1.1.0+gitr${SRCPV}"
-PR = "r0"
+PR = "r1"
+
+# only headers in -dev
+ALLOW_EMPTY_${PN} = "1"
 
 DEPENDS = "yajl libpcre"
 

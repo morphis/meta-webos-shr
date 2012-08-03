@@ -7,13 +7,20 @@ SRC_URI = "git://github.com/isis-project/npapi-headers.git;protocol=http;branch=
 S = "${WORKDIR}/git"
 
 SRCREV = "d345a2acec381cc0514d165672565f7743073389"
-PR = "r0"
+PR = "r1"
+
+# only headers in -dev
+ALLOW_EMPTY_${PN} = "1"
+
+do_compile_prepend() {
+  # otherwise make is executed and headers staged in ${HOME}/ISIS_OUT/
+}
 
 do_install() {
   mkdir -p ${D}/${includedir}/webkit/npapi
   cp ${S}/*.h ${D}/${includedir}/webkit/npapi
 }
 
-PACKAGES = "${PN}-dev"
+PACKAGES = "${PN} ${PN}-dev"
 FILES_${PN}-dev = "${includedir}/webkit/npapi"
 
