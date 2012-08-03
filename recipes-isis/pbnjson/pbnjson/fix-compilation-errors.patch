@@ -1,7 +1,7 @@
-From 537d6883920f97147775c3d101d9f5369efa5d60 Mon Sep 17 00:00:00 2001
+From bcbe1b09db03a3630c91f4335a1e03e7963a58a3 Mon Sep 17 00:00:00 2001
 From: Simon Busch <morphis@gravedo.de>
-Date: Thu, 23 Feb 2012 20:40:44 +0100
-Subject: [PATCH] Fix various compilation errors (mostly mark errors as
+Date: Fri, 3 Aug 2012 23:12:34 +0200
+Subject: [PATCH] Fix various compilation errors (mostly mark errors as 
  warnings)
 
 ---
@@ -9,8 +9,7 @@ Subject: [PATCH] Fix various compilation errors (mostly mark errors as
  src/api/pbnjson/cxx/JValue.h |    2 +-
  src/pjson_c/jparse_stream.c  |    2 +-
  src/pjson_cxx/JValue.cpp     |    4 ++--
- src/pjson_v8/JV8Binding.cpp  |    2 +-
- 5 files changed, 7 insertions(+), 7 deletions(-)
+ 4 files changed, 6 insertions(+), 6 deletions(-)
 
 diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
 index 642cd58..e666a95 100644
@@ -35,10 +34,10 @@ index 642cd58..e666a95 100644
  	set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -DNDEBUG -g")
  else(CMAKE_COMPILER_IS_GNUCXX)
 diff --git a/src/api/pbnjson/cxx/JValue.h b/src/api/pbnjson/cxx/JValue.h
-index 0e22b3a..0b92c6b 100644
+index e16eb62..48892eb 100644
 --- a/src/api/pbnjson/cxx/JValue.h
 +++ b/src/api/pbnjson/cxx/JValue.h
-@@ -276,7 +276,7 @@ public:
+@@ -277,7 +277,7 @@ public:
  	 *
  	 * @return The size of the array, or -1 if this isn't an array.
  	 */
@@ -61,7 +60,7 @@ index 4b74992..e22a4ea 100644
  		yajl_free_error(handle, errMsg);
  	}
 diff --git a/src/pjson_cxx/JValue.cpp b/src/pjson_cxx/JValue.cpp
-index 583e231..0665382 100644
+index 7e7cc5d..384f313 100644
 --- a/src/pjson_cxx/JValue.cpp
 +++ b/src/pjson_cxx/JValue.cpp
 @@ -236,7 +236,7 @@ bool JValue::operator==(const JValue& other) const
@@ -82,19 +81,6 @@ index 583e231..0665382 100644
  {
  	return jarray_size(m_jval);
  }
-diff --git a/src/pjson_v8/JV8Binding.cpp b/src/pjson_v8/JV8Binding.cpp
-index 31469cf..796135d 100644
---- a/src/pjson_v8/JV8Binding.cpp
-+++ b/src/pjson_v8/JV8Binding.cpp
-@@ -44,7 +44,7 @@ namespace pbnjson {
- 			m_context->Enter();
- #endif
- 
--			Handle<String> strToParse = args[0]->ToString();
-+			// Handle<String> strToParse = args[0]->ToString();
- 			Handle<Function> keyValueConverter = Local<Function>::Cast(args[1]);
- 
- 			{
 -- 
 1.7.9.5
 

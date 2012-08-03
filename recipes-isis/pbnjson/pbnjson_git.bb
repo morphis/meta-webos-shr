@@ -16,7 +16,7 @@ SRC_URI = " \
   file://fix-compilation-errors.patch;striplevel=2"
 S = "${WORKDIR}/git/src"
 
-SRCREV = "bdad3ab1e5f0d0cfa8430004f99bdc4459450597"
+SRCREV = "a798bf7efe86ba5d4b2f46a5791efc99"
 
 inherit cmake
 
