@@ -15,7 +15,7 @@ SRC_URI = " \
   file://0002-Don-t-use-multiarch-paths-right-now-for-a-OE-target-.patch"
 S = "${WORKDIR}/git"
 
-SRCREV = "a798bf7efe86ba5d4b2f46a5791efc99"
+SRCREV = "95d8c16e049f35c6b31b16d492f32e23d0877beb"
 
 inherit cmake
 
