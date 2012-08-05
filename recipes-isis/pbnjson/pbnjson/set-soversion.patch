@@ -1,0 +1,39 @@
+From 73a3469536b7bcfac756f6f201464a2b4e4df274 Mon Sep 17 00:00:00 2001
+From: Simon Busch <morphis@gravedo.de>
+Date: Fri, 3 Aug 2012 23:23:41 +0200
+Subject: [PATCH 2/2] Set SOVERSION for build libraries
+
+---
+ src/pjson_c/CMakeLists.txt   |    2 ++
+ src/pjson_cxx/CMakeLists.txt |    2 ++
+ 2 files changed, 4 insertions(+)
+
+diff --git a/src/pjson_c/CMakeLists.txt b/src/pjson_c/CMakeLists.txt
+index 56ebefc..08eb2b1 100644
+--- a/src/pjson_c/CMakeLists.txt
++++ b/src/pjson_c/CMakeLists.txt
+@@ -71,6 +71,8 @@ add_library(pbnjson_c SHARED ${SHARED_SOURCE})
+ target_link_libraries(pbnjson_c ${C_ENGINE_LIBNAME} ${PCRE_LIBRARIES})
+ set_target_properties(pbnjson_c PROPERTIES DEFINE_SYMBOL PJSON_SHARED)
+ 
++SET_TARGET_PROPERTIES(pbnjson_c PROPERTIES VERSION 1.1.0 SOVERSION 1)
++
+ if (WITH_STATIC)
+ 	add_library(pbnjson_c_s STATIC ${STATIC_SOURCE})
+ 	target_link_libraries(pbnjson_c_s ${C_ENGINE_LIBNAME} ${PCRE_LIBRARIES})
+diff --git a/src/pjson_cxx/CMakeLists.txt b/src/pjson_cxx/CMakeLists.txt
+index 2aac092..0e2be7f 100644
+--- a/src/pjson_cxx/CMakeLists.txt
++++ b/src/pjson_cxx/CMakeLists.txt
+@@ -35,6 +35,8 @@ add_definitions(-DLIBRARY_NAME=pbnjson_cpp)
+ add_library(pbnjson_cpp SHARED ${SHARED_SOURCE})
+ target_link_libraries(pbnjson_cpp pbnjson_c ${CXX_ENGINE_LIBNAME})
+ 
++SET_TARGET_PROPERTIES(pbnjson_cpp PROPERTIES VERSION 1.1.0 SOVERSION 1)
++
+ include_directories(${API_HEADERS}
+ 	${API_HEADERS}/pbnjson
+ 	${API_HEADERS}/pbnjson/c
+-- 
+1.7.9.5
+
