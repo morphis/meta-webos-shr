@@ -17,7 +17,7 @@ SRC_URI = " \
   file://set-soversion.patch;striplevel=2"
 S = "${WORKDIR}/git/src"
 
-SRCREV = "a798bf7efe86ba5d4b2f46a5791efc99"
+SRCREV = "5ec5900086c8f79f8830b717f2d7cc885c44bba1"
 
 inherit cmake
 
