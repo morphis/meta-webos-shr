@@ -12,8 +12,9 @@ PR = "r1"
 # only headers in -dev
 ALLOW_EMPTY_${PN} = "1"
 
-do_compile_prepend() {
+do_compile() {
   # otherwise make is executed and headers staged in ${HOME}/ISIS_OUT/
+  true
 }
 
 do_install() {
