@@ -6,7 +6,9 @@ inherit packagegroup
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 
-PR = "r0"
+PR = "r1"
+
+RPROVIDES_${PN} += "task-openwebos-systemd"
 
 RDEPENDS_${PN} = " \
   luna-service2-systemd \
