@@ -9,6 +9,7 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 PR = "r1"
 
 RPROVIDES_${PN} += "task-openwebos-all"
+RREPLACES_${PN} += "task-openwebos-all"
 
 RDEPENDS_${PN} = " \
   enyo \
